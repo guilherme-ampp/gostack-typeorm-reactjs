@@ -13,21 +13,24 @@ const Upload: React.FC<UploadProps> = ({ onUpload }: UploadProps) => {
     isDragRejest: boolean,
   ): ReactNode {
     if (!isDragActive) {
-      return (
-        <UploadMessage>Selecione ou arraste o arquivo aqui.</UploadMessage>
-      );
+      return <UploadMessage>Browse or drag your file here.</UploadMessage>;
     }
 
     if (isDragRejest) {
-      return <UploadMessage type="error">Arquivo não suportado</UploadMessage>;
+      return (
+        <UploadMessage type="error">Unsupported file format</UploadMessage>
+      );
     }
 
-    return <UploadMessage type="success">Solte o arquivo aqui</UploadMessage>;
+    return <UploadMessage type="success">Drop the file here</UploadMessage>;
   }
 
   return (
     <>
-      <Dropzone accept=".csv, application/vnd.ms-excel, text/csv" onDropAccepted={(files) => onUpload(files)}>
+      <Dropzone
+        accept=".csv, application/vnd.ms-excel, text/csv"
+        onDropAccepted={files => onUpload(files)}
+      >
         {({ getRootProps, getInputProps, isDragActive, isDragReject }): any => (
           <DropContainer
             {...getRootProps()}

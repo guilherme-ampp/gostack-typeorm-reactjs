@@ -54,7 +54,7 @@ const Import: React.FC = () => {
     <>
       <Header size="small" />
       <Container>
-        <Title>Importar uma transação</Title>
+        <Title>Import transactions</Title>
         <ImportFileContainer>
           <Upload onUpload={submitFile} />
           {!!uploadedFiles.length && <FileList files={uploadedFiles} />}
@@ -65,7 +65,7 @@ const Import: React.FC = () => {
               Only CSV files allowed
             </p>
             <button onClick={handleUpload} type="button">
-              Enviar
+              Upload
             </button>
           </Footer>
         </ImportFileContainer>
